@@ -87,6 +87,7 @@ namespace Jubeatsu
             }
             return hitObjects;
         }
+
         private void CreateStoryboard()
         {
             lblProgress.Text = "Creating Mask";
@@ -105,53 +106,43 @@ namespace Jubeatsu
                 animations.Add(CreateAnimation(hitObj));
             }
 
-            lblProgress.Text = "Saving new .osu file";
+            lblProgress.Text = "Saving Events file as .txt";
             using (StreamReader sr = new StreamReader(filePath))
             {
                 string line;
-                bool inEvents = false;
-                while ((line = sr.ReadLine()) != null)
+                string directory = Path.GetDirectoryName(filePath);
+                string newFileName = "Events_" + fileName + ".txt";
+                string newFilePath = Path.Combine(directory, newFileName);
+
+                using (StreamWriter sw = new StreamWriter(newFilePath))
                 {
-                    string directory = Path.GetDirectoryName(filePath);
-                    string newFileName = "Events_" + fileName + ".txt";
-                    string newFilePath = Path.Combine(directory, newFileName);
-                    using (StreamWriter sw = new StreamWriter(newFilePath))
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        if (line == "[Events]")
+                        foreach (var str in mask)
                         {
-                            inEvents = true;
-                            continue;
+                            sw.WriteLine(str);
                         }
 
-                        if (inEvents)
+                        foreach (var str in buttons)
                         {
-                            foreach (var str in mask)
+                            sw.WriteLine(str);
+                        }
+
+                        foreach (var animation in animations)
+                        {
+                            foreach (var str in animation)
                             {
                                 sw.WriteLine(str);
                             }
-
-                            foreach (var str in buttons)
-                            {
-                                sw.WriteLine(str);
-                            }
-
-                            foreach (var animation in animations)
-                            {
-                                foreach (var str in animation)
-                                {
-                                    sw.WriteLine(str);
-                                }
-                            }
-
-                            sw.WriteLine(Environment.NewLine);
-                            break;
                         }
+                        break;
                     }
                 }
             }
             lblProgress.Text = "Done, your new File has been saved.";
             progressBar.Value = 100;
         }
+
         private string[] CreateMask()
         {
             string[] mask = new string[]
