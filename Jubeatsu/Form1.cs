@@ -95,7 +95,7 @@ namespace Jubeatsu
             string[] mask = CreateMask();
             lblProgress.Text = "Creating Buttons";
             progressBar.Value = 40;
-            string[] buttons = CreateButtons();
+            string[] buttons = CreateButtons(GetHitObjects().ElementAt(0));
             lblProgress.Text = "Retrieving HitObjects";
             progressBar.Value = 50;
             List<HitObject> hitObjects = GetHitObjects();
@@ -164,13 +164,18 @@ namespace Jubeatsu
             };
             return mask;
         }
-        private string[] CreateButtons()
+        private string[] CreateButtons(HitObject hitObject)
         {
+            const int HORIZONTAL_OFFSET = 64;
+            const int VERTICAL_OFFSET = 55;
+
+            int x = hitObject.x + HORIZONTAL_OFFSET;
+            int y = hitObject.y + VERTICAL_OFFSET;
             string[] buttons = new string[]
             {
                 "Sprite,Foreground,Centre,\"sb\\start.png\",320,240",
                 " S,0,-4000,,0.704",
-                " M,0,-1,-295,482,406",
+                $" M,0,-1,-295,{x},{y}",
                 "Sprite,Foreground,Centre,\"sb\\jubeat.png\",320,240",
                 " S,0,-4000,,0.8480002",
                 " R,0,-4000,,1.568",
