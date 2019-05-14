@@ -9,11 +9,12 @@ There might be too much useless code.
 ## What is this Mod?
 This mod allows you to create a Jubeatsu Storyboard for your Jubeatsu Setup. It's pretty simple, but requires you a little of work.
 
-## Download
+## [Download](https://mega.nz/#F!TkVyVSqJ!kmXJuApOC9UxOrbP7A6O0A)
 The download is currently only available for Windows (and most likely will stay Windows only).
 
-You can download it by clicking [here](https://mega.nz/#F!TkVyVSqJ!kmXJuApOC9UxOrbP7A6O0A).
 ## Getting Started
+### [Video Guide on a random Map](https://www.youtube.com/watch?v=LrVJi1Z4pMk)
+
 ### Create a Beatmap
 * To create a Beatmap, you'll need the Jubeatsu mask found in the downloads.
 * Please note: It **must** be located under the folder **sb** in your Beatmap Song Directory.
