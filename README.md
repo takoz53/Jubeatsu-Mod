@@ -69,6 +69,7 @@ I'd like to thank a few people in the osu! storyboarder banquet. Their usernames
    * For helping me generally with .osu Files as well
 * celerih#0001
    * For leading me to these nice people and giving me some clues about how some Stuff works
+   
 Without them It'd have taken me a lot longer, so cheers to them! :)
 
 You can join the Banquet from [this link](https://discord.gg/B8NX7YW).
